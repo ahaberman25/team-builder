@@ -15,11 +15,17 @@ function App() {
     }
   ])
 
+  const addUserHandler = newUser => {
+    console.log("registering user", newUser);
+    // update state
+    setRegUser([...regUser, newUser]);
+  };
+
   return (
     <div className="App">
       <h1>Registered Users</h1>
+      <Form newUser={addUserHandler} />
       <Users regUsers={regUser} />
-      <Form />
     </div>
   );
 }
