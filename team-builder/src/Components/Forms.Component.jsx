@@ -8,6 +8,7 @@ const UserForm = props => {
     })
 
     const changeHandler = event => {
+        // set the state by spreading the data and setting it to the field name and value
         setFormState({
           ...formState,
           [event.target.name]: event.target.value
@@ -15,17 +16,20 @@ const UserForm = props => {
     };
     
     const formSubmitHandler = event => {
-    console.log("in the form submit handler");
-    event.preventDefault();
-    props.newUser({
-        ...formState,
-        id: Date.now()
-    });
-    setFormState({
-        username: '',
-        email: '',
-        role: ''
-    });
+    // console.log("in the form submit handler");
+    // prevent refresh
+        event.preventDefault();
+        // send state for users, spread over the new state and add the id
+        props.newUser({
+            ...formState,
+            id: Date.now()
+        });
+        setFormState({
+            // reset the state after submit
+            username: '',
+            email: '',
+            role: ''
+        });
     };
 
     return(
@@ -46,7 +50,7 @@ const UserForm = props => {
                 id="email"
                 value={formState.email}
                 onChange={changeHandler}
-                placeholder="This is the username"
+                placeholder="This is the email"
             />
             <label htmlFor="role">Role: </label>
             <input
@@ -55,8 +59,8 @@ const UserForm = props => {
                 id="role"
                 value={formState.role}
                 onChange={changeHandler}
-                placeholder="This is the username"
-            />
+                placeholder="This is the role"
+            /><br />
             <button type="submit">Register</button>
         </form>
     )

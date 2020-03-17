@@ -15,9 +15,9 @@ function App() {
     }
   ])
 
+  // update state
   const addUserHandler = newUser => {
-    console.log("registering user", newUser);
-    // update state
+    console.log("registering user", newUser);    
     setRegUser([...regUser, newUser]);
   };
 
