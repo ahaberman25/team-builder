@@ -23,6 +23,7 @@ const Users = props => {
                 props.regUsers.map(user => (
                 <RegList className="regUserList" key={user.id}>
                     <p><b>User</b></p>
+                    <p><b>ID:</b> {user.id}</p>
                     <p><b>Username:</b> {user.username}</p>
                     <p><b>Email:</b> {user.email}</p>
                     <p><b>Role:</b> {user.role}</p>
